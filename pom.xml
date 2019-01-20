@@ -262,13 +262,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.1</version>
 				<configuration>
-                    <verbose>true</verbose>
-                    <fork>true</fork>
-                    <executable><!-- path-to-javac --></executable>
-                    <compilerVersion>1.8</compilerVersion>
-                    <source>1.8</source>
-                    <target>1.8</target>
-				</configuration>
+                    <!-- CircleCI build workaround -->
+                <argLine>${surefireArgLine} -Xms1024m -Xmx2048m</argLine>
+                <reuseForks>true</reuseForks>
+                <useSystemClassLoader>false</useSystemClassLoader>
+            </configuration>
+            <version>2.20.1</version><!--$NO-MVN-MAN-VER$-->
 			</plugin>
 		</plugins>
 	</build>

@@ -256,14 +256,6 @@
     </profiles>
     
 	<build>
-		
-		<extensions>
-    <extension>
-      <groupId>io.packagecloud.maven.wagon</groupId>
-      <artifactId>maven-packagecloud-wagon</artifactId>
-      <version>0.0.4</version>
-    </extension>
-  </extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -293,15 +285,5 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-	<distributionManagement>
-  <repository>
-    <id>packagecloud-examplecorp</id>
-    <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
-  </repository>
-  <snapshotRepository>
-    <id>packagecloud-examplecorp</id>
-    <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
-  </snapshotRepository>
-</distributionManagement>
 
 </project>

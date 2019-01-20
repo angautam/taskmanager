@@ -23,7 +23,7 @@ jobs:
           key: taskmanager-{{ checksum "pom.xml" }}
       
       - run: mvn package # run the actual tests
-      - run : mvn clean install -Pweb
+      - run : mvn clean install package -Pweb
       
       
 

@@ -22,7 +22,7 @@ jobs:
             - ~/.m2
           key: taskmanager-{{ checksum "pom.xml" }}
       
-      - run: mvn package # run the actual tests
+      - run: mvn clean package install # run the actual tests
       
 
       

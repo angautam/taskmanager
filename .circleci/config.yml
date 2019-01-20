@@ -24,6 +24,13 @@ jobs: # a collection of steps
       
       - run: mvn package # run the actual tests
       
+      mvn clean install -Pweb
+      mvn eclipse:clean eclipse:eclipse -Pweb
+
+      mvn clean install -Pscheduler
+      mvn eclipse:clean eclipse:eclipse -Pscheduler
+      mvn clean install -Pscheduler,docker
+      
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
       # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: target/surefire-reports

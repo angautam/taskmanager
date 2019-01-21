@@ -47,6 +47,19 @@ systemctl start  docker
 
 systemctl status docker
 
+# to create private docker registry - 
+
+create certificate 
+
+openssl req -newkey rsa:4096 -nodes -sha256 -keyout /certs/domain.key -x509 -days 365 -out /certs/domain.crt
+
+
+
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+
+
+
 # Steps to install docker and minikube and kubernetes.
 
 Steps for Kubernetes Cluster with Internet access

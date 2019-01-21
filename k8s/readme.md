@@ -11,6 +11,11 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 choco install minikube kubernetes-cli
 
+# steps to install minkube on linux
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube
+  
+
 
 
 # steps to install docker ce or ee

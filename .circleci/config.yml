@@ -26,6 +26,12 @@ jobs:
       - run: mvn clean install package -Pweb
       
       - run: mvn clean install -Pscheduler
+      
+  workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
 
 
   

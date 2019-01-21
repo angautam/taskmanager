@@ -81,7 +81,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8
 
 Step9: Both Kubernetes node should be in READY status now
 
-![Screenshot](kube_READY.jpg)
+![Screenshot](kube_READY.JPG)
 
 
 

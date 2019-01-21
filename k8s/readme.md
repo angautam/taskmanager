@@ -1,6 +1,17 @@
 # k8 yaml manifest files
 
 
+#steps to install minikube on windows
+
+- Install chololotay package manager for windows.
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+- Install minkube by running below command on powershell
+choco install minikube kubernetes-cli
+
+
+
 # steps to install docker ce or ee
 
 yum-config-manager \

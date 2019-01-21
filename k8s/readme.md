@@ -107,7 +107,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 Step7: Run join command on worker node
 
-sudo kubeadm join 172.31.8.147:6443 --token 8nolmf.lgx1dzu93ptd1327 --discovery-token-ca-cert-hash sha256:dfa29e9ef942670e4cf97420f5d07300f3af1ddee7f5650698ace79f55f60917
+sudo kubeadm join 100.31.8.000:6443 --token 8nolmf.lgx1dzu93ptd1327 --discovery-token-ca-cert-hash sha256:dfa29e9ef942670e4cf97420f5d07300f3af1ddee7f5650698ace79f55f60917
 
 
 

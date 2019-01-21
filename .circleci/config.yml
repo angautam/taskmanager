@@ -22,16 +22,10 @@ jobs:
           key: taskmanager-{{ checksum "pom.xml" }}
       
       - run: mvn test
-          - store_test_results:
-          path: target/surefire-reports
       
       - run: mvn clean install package -Pweb
       
       - run: mvn clean install -Pscheduler
-              - store_artifacts: 
-          path: persistance/target/persistance-0.1-SNAPSHOT.jar
-      
-          - store_artifacts: 
-          path: persistance/target/scheduler-0.1-SNAPSHOT.jar
+
 
   

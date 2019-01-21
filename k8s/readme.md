@@ -1,6 +1,36 @@
 # k8 yaml manifest files
 
-Steps to install docker and minikube and kubernetes.
+
+# steps to install docker ce or ee
+
+yum-config-manager \
+--add-repo \
+"$DOCKERURL/rhel/docker-ee.repo"
+
+Enable the preferred version from Docker Repository 
+
+/etc/yum.repos.d/docker-ee.repo
+[docker-ee-stable-18.09]
+name=Docker EE Stable 18.09 - $basearch
+baseurl=$dockerurl/$dockerosversion/$basearch/stable-18.09/
+enabled=1
+gpgcheck=1
+gpgkey=$dockerurl/gpg
+
+Install docker using below command : 
+
+yum -y install docker-ee
+
+
+Enable and start docker service
+
+systemctl enable docker
+
+systemctl start  docker
+
+systemctl status docker
+
+# Steps to install docker and minikube and kubernetes.
 
 Steps for Kubernetes Cluster with Internet access
 
@@ -23,10 +53,6 @@ Install and configure Docker.
 sudo yum -y install docker
 sudo systemctl enable docker
 sudo systemctl start docker
-
-My docker is now up and running on both nodes
-
-
 
 Step3: create a kubernetes repo on both master and worker node machines.
 
@@ -75,7 +101,7 @@ sudo kubeadm join 172.31.8.147:6443 --token 8nolmf.lgx1dzu93ptd1327 --discovery-
 
 
 
-Step8: Install flannel networking.
+Step8: Install flannel or weavenet networking as per the requirement for pod networking.
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 

@@ -34,5 +34,4 @@ jobs:
       
       - store_artifacts: 
           path: persistance/target/persistance-0.1-SNAPSHOT.jar
-          path: target/mvn-spring-project-0.1-SNAPSHOT.jar
        

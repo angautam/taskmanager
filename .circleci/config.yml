@@ -1,37 +1,33 @@
-version: 2 # use CircleCI 2.0
+version: 2
 jobs:
-  build: # runs not using Workflows must have a `build` job as entry point
+  build:
     
-    working_directory: ~/taskmanager # directory where steps will run
+    working_directory: ~/taskmanager
 
-    docker: # run the steps with Docker
-      - image: circleci/openjdk:8u171-jdk  # ...with this image as the primary container; this is where all `steps` will run
+    docker:
+      - image: circleci/openjdk:8u171-jdk
 
-    steps: # a collection of executable commands
+    steps:
 
-      - checkout # check out source code to working directory
+      - checkout
 
-      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+      - restore_cache:
           key: taskmanager-{{ checksum "pom.xml" }}
       
-      - run: mvn dependency:go-offline # gets the project dependencies
+      - run: mvn dependency:go-offline
       
-      - save_cache: # saves the project dependencies
+      - save_cache:
           paths:
             - ~/.m2
           key: taskmanager-{{ checksum "pom.xml" }}
       
-      - run: mvn package # run the actual tests
-      - run : mvn clean install package -Pweb
-      
-      
+      - run: mvn package
+      - run: mvn clean install package -Pweb
+    
 
       
-      - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
-      # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+      - store_test_results:
           path: target/surefire-reports
       
       - store_artifacts: 
           path: persistance/target/persistance-0.1-SNAPSHOT.jar
-       
